@@ -1,0 +1,29 @@
+class Esfera extends Circulo 
+{
+	public Esfera(){
+		super();
+	}
+	public Esfera(float raio){
+		super(raio);
+	}
+
+	public float diametro(){
+		return 0;
+	}
+	public double perimetro_comprimento(){
+		return 0;
+	}
+	public double area(){
+		return(4 * super.area());
+	}
+	public double volume(){
+		return (4/3f * Math.PI * Math.pow(super.getRaio(), 3));
+	}
+
+	public void mostrarDados(){
+		System.out.println("Raio\tArea\tVolume");
+		System.out.println( JUtil.pictureNumero(super.getRaio()) + "\t" +
+			JUtil.pictureNumero(this.area()) + "\t" +
+			JUtil.pictureNumero(this.volume()));
+	}
+}

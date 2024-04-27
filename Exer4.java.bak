@@ -1,0 +1,13 @@
+class Exer4 
+{
+	public static void main(String[] args) throws Exception
+	{
+		double raio, diametro, circun, area;
+		System.out.println("Digite o raio: ");
+		raio = JUtil.readFloat();
+		diametro = 2*raio;
+		circun = 2 * Math.PI * raio;
+		area = Math.PI * Math.pow(raio,2);
+		System.out.println("Diametro: " + diametro + "\n Circunferencia: " + circun + "\nArea: " + area);
+	}
+}

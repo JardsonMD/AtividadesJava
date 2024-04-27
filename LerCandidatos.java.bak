@@ -1,0 +1,51 @@
+class LerCandidatos 
+{
+	public static void main(String[] args) throws Exception {
+		int minimo, totalVotos = 0, contVotado = 0;
+		Candidato mVotado = new Candidato();
+		System.out.print("Digite o numero de candidatos: ");
+		Candidato candidatos[] = new Candidato[JUtil.readInt()];
+		System.out.println("Digite o numero minimo de votos: ");
+		minimo = JUtil.readInt();
+		for(int i = 0; i < candidatos.length; i++){
+			candidatos[i] = new Candidato();
+			System.out.println("Digite o numero do candidato: ");
+			candidatos[i].numero = JUtil.readInt();
+			System.out.println("Digite o nome do candidato: ");
+			candidatos[i].nome = JUtil.readString();
+			System.out.println("Digite o numero de votos do candidato: ");
+			candidatos[i].votos = JUtil.readInt();
+			totalVotos += candidatos[i].votos;
+			if(contVotado < candidatos[i].votos){
+				contVotado = candidatos[i].votos;
+				mVotado = candidatos[i];
+			}
+		}//For 1
+		System.out.println("Item\tNumero\tNome\tVotos\tClassificado");
+		if(minimo > 10){
+			for(int i = 0; i < candidatos.length; i++){
+				System.out.print(i + 1);
+				candidatos[i].mostrarDados();
+				System.out.print("\t" + (candidatos[i].classificado(minimo) ? 
+					"Sim, Excedeu " + (candidatos[i].votos - minimo) + " voto(s)" : 
+					"Nao, Faltou " + (minimo - candidatos[i].votos) + " voto(s)"));
+				System.out.println("");
+			}	
+		
+		}else{
+			for(int i = 0; i < candidatos.length; i++){
+				System.out.print(i + 1);
+				candidatos[i].mostrarDados();
+				System.out.print("\t" + (candidatos[i].classificado() ? 
+					"Sim, Excedeu " + (candidatos[i].votos - 10) + " voto(s)" : 
+					"Nao, Faltou " + (10 - candidatos[i].votos) + " voto(s)"));
+				System.out.println("");
+			
+			}
+		}//Bloco If
+		System.out.println("Soma dos votos: " + totalVotos + "\n" +
+			"Media dos votos: " + (totalVotos/candidatos.length) + "\n" +
+			"Mais votado(a): " + mVotado.nome + " com " + mVotado.votos + " votos");
+
+	}//Main
+}//Class

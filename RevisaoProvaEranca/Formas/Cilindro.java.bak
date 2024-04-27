@@ -1,0 +1,49 @@
+class Cilindro extends Circulo 
+{
+	private float altura;
+
+	public Cilindro(){
+		super();
+		this.altura = 0;
+	}
+	public Cilindro(float raio, float altura){
+		super(raio);
+		this.altura = altura;
+	}
+
+	public float getAltura(){
+		return this.altura;
+	}
+
+	public void setAltura(float altura){
+		this.altura = altura;
+	}
+
+	public float diametro(){
+		return 0;
+	}
+	public double perimetro_comprimento(){
+		return 0;
+	}
+	public double areaLateral(){
+		return (super.perimetro_comprimento() * this.altura);
+	}
+	public double area(){
+		return (2 * super.area() + this.areaLateral());
+	}
+	public double volume(){
+		return (super.area() * this.altura);
+	}
+	public void mostrarDados(){
+		System.out.println("Raio\tAltura\t¡reaBase\tPerimetroBase\tDi‚metroBase\t¡reaLateral\t¡rea\tVolume");
+		System.out.println("Cilindro\n" + super.getRaio() + "\t" + 
+			this.altura + "\t" + 
+			JUtil.pictureNumero(super.area()) + "\t" + 
+			JUtil.pictureNumero(super.perimetro_comprimento()) + "\t" + 
+			JUtil.pictureNumero(super.diametro()) + "\t" + 
+			JUtil.pictureNumero(this.areaLateral()) + "\t" +
+			JUtil.pictureNumero(this.area()) + "\t" + 
+			JUtil.pictureNumero(this.volume()));
+	}
+	
+}
